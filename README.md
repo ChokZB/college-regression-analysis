@@ -26,25 +26,69 @@ The `College` dataset is included in the `ISLR2` R package and contains informat
 
 ## ⚙️ Methods
 1. Data exploration and summary statistics  
-2. Correlation analysis and visualisation  
-3. Linear and multiple regression modelling  
-4. Model diagnostics and residual analysis  
-5. Interpretation of coefficients and performance metrics
+2. Linear and multiple regression modelling  
+3. Model diagnostics and residual analysis  
+4. Variable transformations to improve fit  
+5. Best subset selection to identify optimal predictors  
+6. Polynomial regression and evaluation using cross-validation (Holdout, LOOCV, k-Fold)  
 
 ---
 
 ## 📁 Project Structure
-| File / Folder | Description |
-|----------------|-------------|
-| `college_regression_analysis.R` | Main R script performing the analysis |
-| `README.md` | Project documentation |
-| `.gitignore` | Specifies files and folders to exclude from version control |
+```
+college-regression-analysis/
+│
+├── college_regression_analysis.R     # Main R script with full analysis
+├── install_packages.R                # Install all required R packages
+├── college_regression_report.pdf     # Written assignment report
+├── figures/                          # Generated plots and diagnostic visualisations
+│   ├── model_diagnostics_original.png
+│   ├── studentized_residuals_original.png
+│   └── ...
+├── README.md                          # Project overview and instructions
+├── .gitignore                         # Files/folders excluded from Git
+├── LICENSE                            # MIT License
+└── college-regression-analysis.Rproj  # RStudio project file for reproducibility
+
+```
+
+
+---
+## 🧰 Reproducibility
+To reproduce the analysis:
+
+1. Clone the repository:  
+```bash
+git clone https://github.com/ChokZB/college-regression-analysis.git
+````
+
+2. Open the R project in RStudio:
+
+```r
+college-regression-analysis.Rproj
+```
+
+3. Install all required packages:
+
+```r
+source("install_packages.R")
+```
+
+4. Run the main script:
+
+```r
+source("college_regression_analysis.R")
+```
 
 ---
 
-## 🧰 Requirements
-- **R version ≥ 4.0**
-- Required libraries:  
-  ```r
-  install.packages(c("ISLR2", "ggplot2", "dplyr", "corrplot"))
-  ```
+## 🧑‍💻 Author
+
+**Chok Zu Bing**
+GitHub: [@ChokZB](https://github.com/ChokZB)
+
+---
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).

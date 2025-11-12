@@ -23,44 +23,74 @@ model = lm(Outstate ~ Apps + Accept + Enroll + Top10perc + Top25perc, data = Col
 # Summary of the original model
 summary(model)
 
+
+# ------------------------------------------------------------
 # Diagnostic plots for the original model
+# ------------------------------------------------------------
+
+# Create a folder for figures if it doesn’t exist
+if (!dir.exists("figures")) dir.create("figures")
+
+png("figures/model_diagnostics_original.png", width = 1200, height = 800)
 par(mfrow = c(2, 2))
 plot(model)
+dev.off()
 
 # Studentised residual plot for the original model
+png("figures/studentized_residuals_original.png", width = 800, height = 600)
 par(mfrow = c(1, 1))
-plot(predict(model), rstudent(model))
+plot(predict(model), rstudent(model), main = "Studentised Residuals - Original Model",
+     xlab = "Predicted Values", ylab = "Studentised Residuals")
+dev.off()
 
+
+# ------------------------------------------------------------
 # Log transformation of the response variable `Outstate`
+# ------------------------------------------------------------
 model_log = lm(log(Outstate) ~ Apps + Accept + Enroll + Top10perc + Top25perc, data = College)
 
 # Summary of the log-transformed model
 summary(model_log)
 
 # Diagnostic plots for the log-transformed model
+png("figures/model_diagnostics_log.png", width = 1200, height = 800)
 par(mfrow = c(2, 2))
 plot(model_log)
+dev.off()
 
 # Studentised residual plot for the log-transformed model
+png("figures/studentized_residuals_log.png", width = 800, height = 600)
 par(mfrow = c(1, 1))
-plot(predict(model_log), rstudent(model_log))
+plot(predict(model_log), rstudent(model_log), main = "Studentised Residuals - Log Model",
+     xlab = "Predicted Values", ylab = "Studentised Residuals")
+dev.off()
 
+
+# ------------------------------------------------------------
 # Square root transformation of the predictors `Apps`, `Accept`, and `Enroll`
+# ------------------------------------------------------------
 model_sqrt = lm(Outstate ~ sqrt(Apps) + sqrt(Accept) + sqrt(Enroll) + Top10perc + Top25perc, data = College)
 
 # Summary of the square root-transformed model
 summary(model_sqrt)
 
 # Diagnostic plots for the square root-transformed model
+png("figures/model_diagnostics_sqrt.png", width = 1200, height = 800)
 par(mfrow = c(2, 2))
 plot(model_sqrt)
+dev.off()
 
 # Studentised residual plot for the square root-transformed model
+png("figures/studentized_residuals_sqrt.png", width = 800, height = 600)
 par(mfrow = c(1, 1))
-plot(predict(model_sqrt), rstudent(model_sqrt))
+plot(predict(model_sqrt), rstudent(model_sqrt), main = "Studentised Residuals - Sqrt Model",
+     xlab = "Predicted Values", ylab = "Studentised Residuals")
+dev.off()
 
 
-# Fit the model with all predictors to perform best subset selection
+# ------------------------------------------------------------
+# Best subset selection
+# ------------------------------------------------------------
 regfit.full = regsubsets(Outstate ~ ., data = College, nvmax = 17)
 
 # Summary of the best subset selection
@@ -68,7 +98,9 @@ reg.summary = summary(regfit.full)
 reg.summary
 
 # Plotting Adjusted R-squared, Cp, and BIC
+png("figures/best_subset_selection_metrics.png", width = 1800, height = 600)
 par(mfrow = c(1, 3))
+
 
 # Adjusted R-squared
 plot(reg.summary$adjr2, xlab = "Number of Predictors", ylab = "Adjusted R-Squared", main = "Adjusted R-Squared", type = "b")
@@ -99,6 +131,8 @@ grid()
 # Highlight the best model based on BIC
 points(which.min(reg.summary$bic), min(reg.summary$bic), col = "red", cex = 2, pch = 20)
 
+dev.off()
+
 
 # Print the best model based on Adjusted R-squared and display the coefficients
 cat("Best model by Adjusted R-squared: ", which.max(reg.summary$adjr2), "\n")
@@ -113,7 +147,9 @@ cat("Best model by BIC: ", which.min(reg.summary$bic), "\n")
 print(coef(regfit.full, which.min(reg.summary$bic)))
 
 
-# Evaluate the predictive performance of polynomial regression models for predicting `Top10perc` using the predictor `Apps` with different polynomial degrees
+# ------------------------------------------------------------
+# Cross-validation MSE plots
+# ------------------------------------------------------------ 
 
 # Set the seed for reproducibility
 set.seed(1)
@@ -185,6 +221,16 @@ kfold_mse = calculate_mse(College, "Top10perc", "Apps", method = "kfold", k = 10
 holdout_results = create_results_df(holdout_mse)
 loocv_results = create_results_df(loocv_mse)
 kfold_results = create_results_df(kfold_mse)
+
+# Export MSE plots
+png("figures/cv_mse_comparison.png", width = 900, height = 600)
+plot(1:10, holdout_mse, type = "b", col = "blue", ylim = range(c(holdout_mse, loocv_mse, kfold_mse)),
+     xlab = "Polynomial Degree", ylab = "Mean Squared Error", main = "Cross-Validation Comparison")
+lines(1:10, loocv_mse, type = "b", col = "red")
+lines(1:10, kfold_mse, type = "b", col = "green")
+legend("topright", legend = c("Holdout", "LOOCV", "K-Fold (10)"),
+       col = c("blue", "red", "green"), lty = 1, pch = 19)
+dev.off()
 
 # Print the results
 print("Cross-Validation Approach 1 - Holdout Method Results:")
