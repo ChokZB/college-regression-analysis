@@ -14,7 +14,7 @@ The analysis explores relationships between various institutional characteristic
 
 ---
 
-## 🧮 Dataset
+## 🗃️ Dataset
 The `College` dataset is included in the `ISLR2` R package and contains information on U.S. colleges such as:
 - Number of applications and acceptances
 - Tuition and room costs
@@ -49,9 +49,7 @@ college-regression-analysis/
 ├── .gitignore                         # Files/folders excluded from Git
 ├── LICENSE                            # MIT License
 └── college-regression-analysis.Rproj  # RStudio project file for reproducibility
-
 ```
-
 
 ---
 ## 🧰 Reproducibility
@@ -79,6 +77,16 @@ source("install_packages.R")
 ```r
 source("college_regression_analysis.R")
 ```
+
+---
+
+## 📈 Results Preview
+
+Below is a sample output from the regression and model selection analyses.
+
+### Best Subset Selection Metrics
+![Best Subset Selection Metrics](figures/best_subset_selection_metrics.png)
+
 
 ---
 
