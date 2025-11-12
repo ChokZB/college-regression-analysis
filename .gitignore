@@ -1,0 +1,16 @@
+# R files to ignore
+.Rhistory
+.RData
+.Rproj.user/
+.Rproj
+
+# Output and temporary files
+*.csv
+*.txt
+*.log
+*.html
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
