@@ -14,3 +14,6 @@
 # OS files
 .DS_Store
 Thumbs.db
+
+# Allow the report PDF
+!college_regression_report.pdf
