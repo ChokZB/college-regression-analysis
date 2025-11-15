@@ -97,6 +97,6 @@ GitHub: [@ChokZB](https://github.com/ChokZB)
 
 ---
 
-## 📄 License
+## 🪪 License
 
 This project is released under the [MIT License](LICENSE).
