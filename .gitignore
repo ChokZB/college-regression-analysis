@@ -9,6 +9,7 @@
 *.txt
 *.log
 *.html
+*.docx
 *.pdf
 
 # OS files
