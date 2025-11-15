@@ -38,17 +38,24 @@ The `College` dataset is included in the `ISLR2` R package and contains informat
 ```
 college-regression-analysis/
 │
-├── college_regression_analysis.R     # Main R script with full analysis
-├── install_packages.R                # Install all required R packages
-├── college_regression_report.pdf     # Written assignment report
-├── figures/                          # Generated plots and diagnostic visualisations
+├── figures/                           # Generated plots and diagnostic visualisations
 │   ├── model_diagnostics_original.png
 │   ├── studentized_residuals_original.png
 │   └── ...
-├── README.md                          # Project overview and instructions
+│
 ├── .gitignore                         # Files/folders excluded from Git
+│
 ├── LICENSE                            # MIT License
-└── college-regression-analysis.Rproj  # RStudio project file for reproducibility
+│
+├── README.md                          # Project overview and instructions
+│
+├── college-regression-analysis.Rproj  # RStudio project file for reproducibility
+│
+├── college_regression_analysis.R      # Main R script with full analysis
+│
+├── college_regression_report.pdf      # Written assignment report
+│
+└── install_packages.R                 # Install all required R packages
 ```
 
 ---
