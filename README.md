@@ -22,15 +22,6 @@ The `College` dataset is included in the `ISLR2` R package and contains informat
 - Student-to-faculty ratio
 - Type of institution (Private or Public)
 
----
-
-## ⚙️ Methods
-1. Data exploration and summary statistics  
-2. Linear and multiple regression modelling  
-3. Model diagnostics and residual analysis  
-4. Variable transformations to improve fit  
-5. Best subset selection to identify optimal predictors  
-6. Polynomial regression and evaluation using cross-validation (Holdout, LOOCV, k-Fold)  
 
 ---
 
@@ -59,7 +50,7 @@ college-regression-analysis/
 ```
 
 ---
-## 💻 Reproducibility
+## 🔧 Reproducibility
 To reproduce the analysis:
 
 1. **Clone the repository**
@@ -86,13 +77,24 @@ To reproduce the analysis:
    source("college_regression_analysis.R")
    ```
 
+
+---
+
+## ⚙️ Methods
+1. Data exploration and summary statistics  
+2. Linear and multiple regression modelling  
+3. Model diagnostics and residual analysis  
+4. Variable transformations to improve fit  
+5. Best subset selection to identify optimal predictors  
+6. Polynomial regression and evaluation using cross-validation (Holdout, LOOCV, k-Fold)  
+
+
 ---
 
 ## 📈 Results Preview
 
 Below is a sample output from the regression and model selection analyses.
 
-### Best Subset Selection Metrics
 ![Best Subset Selection Metrics](figures/best_subset_selection_metrics.png)
 
 
@@ -103,6 +105,7 @@ Below is a sample output from the regression and model selection analyses.
 **Chok Zu Bing**
 
 GitHub: [@ChokZB](https://github.com/ChokZB)
+
 
 ---
 
