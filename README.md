@@ -25,6 +25,16 @@ The `College` dataset is included in the `ISLR2` R package and contains informat
 
 ---
 
+## ⚙️ Methods
+1. Data exploration and summary statistics  
+2. Linear and multiple regression modelling  
+3. Model diagnostics and residual analysis  
+4. Variable transformations to improve fit  
+5. Best subset selection to identify optimal predictors  
+6. Polynomial regression and evaluation using cross-validation (Holdout, LOOCV, k-Fold)  
+
+---
+
 ## 📁 Project Structure
 ```
 college-regression-analysis/
@@ -76,17 +86,6 @@ To reproduce the analysis:
    ```r
    source("college_regression_analysis.R")
    ```
-
-
----
-
-## ⚙️ Methods
-1. Data exploration and summary statistics  
-2. Linear and multiple regression modelling  
-3. Model diagnostics and residual analysis  
-4. Variable transformations to improve fit  
-5. Best subset selection to identify optimal predictors  
-6. Polynomial regression and evaluation using cross-validation (Holdout, LOOCV, k-Fold)  
 
 
 ---
