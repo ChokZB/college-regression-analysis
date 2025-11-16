@@ -62,24 +62,25 @@ college-regression-analysis/
 ## 💻 Reproducibility
 To reproduce the analysis:
 
-1. Clone the repository:  
+1. **Clone the repository**
+
 ```bash
 git clone https://github.com/ChokZB/college-regression-analysis.git
 ````
 
-2. Open the R project in RStudio:
+2. **Open the R project in RStudio**
 
 ```r
 college-regression-analysis.Rproj
 ```
 
-3. Install all required packages:
+3. **Install all required packages**
 
 ```r
 source("install_packages.R")
 ```
 
-4. Run the main script:
+4. **Run the main script**
 
 ```r
 source("college_regression_analysis.R")
@@ -100,6 +101,7 @@ Below is a sample output from the regression and model selection analyses.
 ## 🧑‍💻 Author
 
 **Chok Zu Bing**
+
 GitHub: [@ChokZB](https://github.com/ChokZB)
 
 ---
