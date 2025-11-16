@@ -59,7 +59,7 @@ college-regression-analysis/
 ```
 
 ---
-## 🧰 Reproducibility
+## 💻 Reproducibility
 To reproduce the analysis:
 
 1. Clone the repository:  
